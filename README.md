@@ -1,2 +1,2 @@
 # Finan-as
-Este repositório serve para manter todos os arquivos do projeto Finanças salvos no remoto de forma que possa ser utilizado sempre que necessário.
+ Finanças é uma ferramenta financeira que tem como propósito auxiliar no gerenciamento das suas finanças, este sistema contém as funcionalidades necessárias para ajudar a organizar a suas contas a estabelecerem  limites, metas, registrar e visualizar o desempenho da sua gestão. 
