@@ -1,0 +1,57 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+--no-fonts
+-classpath
+'C:/Users/renat/.m2/repository/de/mkammerer/argon2-jvm/2.12/argon2-jvm-2.12.jar;C:/Users/renat/.m2/repository/de/mkammerer/argon2-jvm-nolibs/2.12/argon2-jvm-nolibs-2.12.jar;C:/Users/renat/.m2/repository/com/mysql/mysql-connector-j/9.5.0/mysql-connector-j-9.5.0.jar;C:/Users/renat/.m2/repository/com/google/protobuf/protobuf-java/4.31.1/protobuf-java-4.31.1.jar;C:/Users/renat/.m2/repository/org/hibernate/orm/hibernate-core/7.2.0.CR1/hibernate-core-7.2.0.CR1.jar;C:/Users/renat/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.2.0/jakarta.persistence-api-3.2.0.jar;C:/Users/renat/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar'
+-encoding
+'UTF-8'
+-protected
+--release
+24
+-sourcepath
+'C:/Users/renat/OneDrive/Documentos/NetBeansProjects/Financas/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/renat/OneDrive/Documentos/NetBeansProjects/Financas/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Financas 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'Financas 1.0-SNAPSHOT API'
+autenticar
+financasDao
+funcionalidades
+views
+C:\Users\renat\.m2\repository\de\mkammerer\argon2-jvm\2.12\argon2-jvm-2.12.jar = 1761958072880
+C:\Users\renat\.m2\repository\de\mkammerer\argon2-jvm-nolibs\2.12\argon2-jvm-nolibs-2.12.jar = 1761958073049
+C:\Users\renat\.m2\repository\com\mysql\mysql-connector-j\9.5.0\mysql-connector-j-9.5.0.jar = 1761943980358
+C:\Users\renat\.m2\repository\com\google\protobuf\protobuf-java\4.31.1\protobuf-java-4.31.1.jar = 1760562633127
+C:\Users\renat\.m2\repository\org\hibernate\orm\hibernate-core\7.2.0.CR1\hibernate-core-7.2.0.CR1.jar = 1760560722849
+C:\Users\renat\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.2.0\jakarta.persistence-api-3.2.0.jar = 1760560716378
+C:\Users\renat\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar = 1760560716823
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\src\main\java = 1762215034345
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\allclasses-index.html = 1763044631022
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\allpackages-index.html = 1763044631031
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\constant-values.html = 1763044630560
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\element-list = 1763044630313
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\help-doc.html = 1763044631166
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\index-all.html = 1763044631133
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\index.html = 1763044630956
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\member-search-index.js = 1763044631053
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\module-search-index.js = 1763044631036
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\overview-summary.html = 1763044631154
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\overview-tree.html = 1763044630941
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\package-search-index.js = 1763044631040
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\search.html = 1763044631144
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\serialized-form.html = 1763044630674
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\tag-search-index.js = 1763044631062
+C:\Users\renat\OneDrive\Documentos\NetBeansProjects\Financas\target\reports\apidocs\type-search-index.js = 1763044631046
