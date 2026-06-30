@@ -1,0 +1,126 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Sora', sans-serif;
+    background: #f0fdf4;
+    min-height: 100vh;
+}
+
+.navbar {
+    background: #1a5c42;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.link-sair {
+    color: #a7f3d0;
+    font-size: 0.82rem;
+    text-decoration: none;
+}
+
+.link-sair:hover { text-decoration: underline; }
+
+.card-form {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(26,92,66,0.08);
+    max-width: 640px;
+    margin: 2.5rem auto;
+    border-top: 4px solid #1a5c42;
+}
+
+.titulo {
+    color: #1a5c42;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1a5c42;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1.5px solid #a7f3d0;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    font-family: 'Sora', sans-serif;
+    width: 100%;
+    transition: border 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #1a5c42;
+    box-shadow: 0 0 0 3px rgba(26,92,66,0.12);
+}
+
+.acoes {
+    display: flex;
+    gap: 12px;
+    margin-top: 1.5rem;
+}
+
+.btn-salvar {
+    background: #1a5c42;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 32px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    font-family: 'Sora', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-salvar:hover { background: #145234; }
+
+.btn-voltar {
+    background: transparent;
+    color: #1a5c42;
+    border: 1.5px solid #1a5c42;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Sora', sans-serif;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn-voltar:hover {
+    background: #1a5c42;
+    color: #fff;
+}
+
+.text-danger {
+    font-size: 0.78rem;
+    color: #dc2626;
+}

@@ -1,0 +1,181 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Sora', sans-serif;
+    background: #f0fdf4;
+}
+
+.navbar {
+    background: #1a5c42;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.btn-novo {
+    background: #fff;
+    color: #1a5c42;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+/* O hover, eu coloquei para quando o usuário clicar, o campo 
+ficar numa cor verde bem claro para deixar mais estiloso. */
+
+.btn-novo:hover { background: #d1fae5; color: #1a5c42; } 
+
+.link-sair {
+    color: #a7f3d0;
+    font-size: 0.82rem;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+.link-sair:hover { text-decoration: underline; }
+
+.nav-acoes { display: flex; align-items: center; gap: 1rem; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
+
+.cards-resumo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.card-dash {
+    background: #fff;
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(26,92,66,0.08);
+}
+
+.card-dash .label {
+    color: #6b7280;
+    font-size: 0.78rem;
+    margin-bottom: 6px;
+}
+
+.card-dash .valor {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a5c42;
+}
+
+.tabela-wrapper {
+    background: #fff;
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(26,92,66,0.08);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+thead tr {
+    background: #1a5c42;
+    color: #fff;
+}
+
+thead th {
+    padding: 12px 16px;
+    font-weight: 600;
+    text-align: left;
+}
+
+tbody tr {
+    border-bottom: 1px solid #d1fae5;
+    transition: background 0.15s;
+}
+
+tbody tr:hover { background: #f0fdf4; }
+
+tbody td {
+    padding: 12px 16px;
+    color: #374151;
+}
+
+.btn-editar {
+    background: #1a5c42;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 14px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 4px;
+    transition: background 0.2s;
+}
+
+.btn-editar:hover { background: #145234; }
+
+.btn-excluir {
+    background: #fff;
+    color: #dc2626;
+    border: 1.5px solid #dc2626;
+    border-radius: 6px;
+    padding: 5px 14px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn-excluir:hover { background: #dc2626; color: #fff; }
+
+.vazio {
+    text-align: center;
+    color: #9ca3af;
+    padding: 2rem;
+}
+
+.tema {
+    background: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 14px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 12px rgba(26,92,66,0.08);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; 
+    font-size: 0.88rem;
+    color: #374151;
+    font-weight: 600;
+}
+
+
+.tema label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; 
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.tema input[type="radio"] {
+    accent-color: #1a5c42; 
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}

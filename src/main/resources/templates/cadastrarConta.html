@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Finanças — Cadastro</title>
+  <link rel="stylesheet" th:href="@{/cadastrarConta.css}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="card-login">
+    <p class="titulo">💰 Finanças</p>
+    <p class="subtitulo">Crie sua conta</p>
+
+    <form th:action="@{/cadastrar/salvar}" th:object="${conta}" method="POST">
+
+  <label class="form-label">Nome</label>
+  <input type="text" name="nome" class="form-control" placeholder="Seu nome" required/>
+
+  <label class="form-label">E-mail</label>
+  <input type="email" name="gmail" class="form-control" placeholder="seu@email.com" required/>
+
+  <label class="form-label">Senha</label>
+  <input type="password" name="senha" class="form-control" placeholder="••••••••" required/>
+
+  <button type="submit" class="btn-cadastrar">Cadastrar</button>
+</form>
+
+    <div class="texto-centro">
+      <a th:href="@{/}" class="link-login">Já tem conta? Faça login</a>
+    </div>
+  </div>
+</body>
+</html>

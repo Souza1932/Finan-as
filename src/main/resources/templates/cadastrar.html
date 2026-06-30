@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Finanças — Cadastrar Despesa</title>
+  <link rel="stylesheet" th:href="@{/cadastrar.css}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="navbar-brand" th:href="@{/dashboard}">💰 Finanças</a>
+    <a th:href="@{/}" class="link-sair">Sair</a>
+  </nav>
+
+  <div class="card-form">
+    <p class="titulo">📋 Cadastrar Despesa</p>
+
+    <form th:action="@{/dashboard/salvar}" th:object="${cadastro}" method="POST">
+      <input type="hidden" th:field="*{id}"/>
+
+      <div class="form-row">
+
+        <div class="form-group">
+          <label class="form-label">Data</label>
+          <input type="text" th:field="*{data}" class="form-control" 
+                 placeholder="dd/MM/yyyy" maxlength="10"/>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Conta de Luz (R$)</label>
+          <input name="contaDeLuz" class="form-control"/>
+          <span class="text-danger" th:if="${#fields.hasErrors('contaDeLuz')}" th:errors="*{contaDeLuz}"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Conta de Água (R$)</label>
+          <input name="contaDeAgua" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Internet (R$)</label>
+          <input name="contaDeInternet" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Aluguel (R$)</label>
+          <input name="aluguel" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Gastos com Comida (R$)</label>
+          <input name="gastosComComida" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Despesas com Lazer (R$)</label>
+          <input name="despesasComLazer"  class="form-control"/>
+        </div>
+
+      </div>
+
+      <div class="acoes">
+        <button type="submit" class="btn-salvar">💾 Salvar</button>
+        <a th:href="@{/dashboard}" class="btn-voltar">← Voltar</a>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+</html>

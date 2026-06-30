@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Finanças — Dashboard</title>
+  <link rel="stylesheet" th:href="@{/dashboard.css}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="navbar-brand">💰 Finanças</a>
+    <div class="nav-acoes">
+      <a th:href="@{/dashboard/novo}" class="btn-novo">+ Nova Despesa</a>
+      <a th:href="@{/}" class="link-sair">Sair</a>
+    </div>
+  </nav>
+   <div class="tema">
+     Tema:
+     <label>
+         <input type="radio" name="estilo" value="verde"> Verde
+     </label>
+     <label>
+         <input type="radio" name="estilo" value="branco" checked> Branco
+     </label>
+</div>
+
+  <div class="container">
+
+    <div class="cards-resumo">
+      <div class="card-dash">
+        <p class="label">Total de Registros</p>
+        <p class="valor" th:text="${#lists.size(listaDespesas)}">0</p>
+      </div>
+      <div class="card-dash">
+        <p class="label">Último Registro</p>
+        <p class="valor" style="font-size:1rem;"
+           th:text="${listaDespesas.isEmpty() ? 'Nenhum' : #temporals.format(listaDespesas[0].data, 'dd/MM/yyyy')}">—</p>
+      </div>
+      <div class="card-dash">
+        <p class="label">Último Gasto</p>
+        <p class="valor" style="font-size:1rem;"
+           th:text="${listaDespesas.isEmpty() ? 'Nenhum' : 'R$ ' + 
+           (listaDespesas[0].contaDeLuz + listaDespesas[0].contaDeAgua + 
+           listaDespesas[0].contaDeInternet + listaDespesas[0].aluguel + 
+           listaDespesas[0].gastosComComida + listaDespesas[0].despesasComLazer)}">—</p>
+      </div>
+    </div>
+    <div class="tabela-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Luz</th>
+            <th>Água</th>
+            <th>Internet</th>
+            <th>Aluguel</th>
+            <th>Comida</th>
+            <th>Lazer</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="d : ${listaDespesas}">
+            <td th:text="${#temporals.format(d.data, 'dd/MM/yyyy')}"></td>
+            <td th:text="${'R$ ' + d.contaDeLuz}"></td>
+            <td th:text="${'R$ ' + d.contaDeAgua}"></td>
+            <td th:text="${'R$ ' + d.contaDeInternet}"></td>
+            <td th:text="${'R$ ' + d.aluguel}"></td>
+            <td th:text="${'R$ ' + d.gastosComComida}"></td>
+            <td th:text="${'R$ ' + d.despesasComLazer}"></td>
+            <td>
+              <a th:href="@{/dashboard/editar/{id}(id=${d.id})}" class="btn-editar">Editar</a>
+              <a th:href="@{/dashboard/deletar/{id}(id=${d.id})}" class="btn-excluir"
+                 onclick="return confirm('Confirmar exclusão?')">Excluir</a>
+            </td>
+          </tr>
+          <tr th:if="${listaDespesas.isEmpty()}">
+            <td colspan="8" class="vazio">Nenhuma despesa cadastrada ainda.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+    <script th:src="@{/js/cores.js}"></script>
+</body>
+</html>
