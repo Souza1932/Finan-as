@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finanças</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="login.css" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="card card-login">
+    <div class="row g-0" style="min-height:100vh;">
+
+      <div class="col-md-6 painel-esquerdo">
+        <div class="icone-logo"><i class="bi bi-currency-dollar"></i></div>
+        <p class="titulo-app" data-i18n="login.titulo_app">Finanças</p>
+        <p class="subtitulo-app" data-i18n="login.subtitulo_app">Organização financeira pessoal</p>
+        <div class="divisor"></div>
+        <div class="w-100">
+          <div class="bullet-item"><span class="bullet-dot"></span><p class="bullet-texto" data-i18n="login.bullet1">Controle de receitas e despesas</p></div>
+          <div class="bullet-item"><span class="bullet-dot"></span><p class="bullet-texto" data-i18n="login.bullet2">Acompanhe seu saldo com facilidade</p></div>
+        </div>
+      </div>
+
+      <div class="col-md-6 painel-direito">
+        <p class="titulo-form" data-i18n="login.titulo_form">Bem-vindo</p>
+
+        <div class="mb-3">
+          <label class="form-label" data-i18n="login.email_label">E-mail</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-envelope" style="font-size:15px;"></i></span>
+            <input id="inputEmail" type="email" class="form-control" placeholder="Seu e-mail" data-i18n-placeholder="login.email_placeholder" />
+          </div>
+          <small class="msg-erro" id="erroEmail" data-i18n="login.erro_email">Por favor, insira seu e-mail.</small>
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label" data-i18n="login.senha_label">Senha</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-lock" style="font-size:15px;"></i></span>
+            <input id="inputSenha" type="password" class="form-control" placeholder="••••••••" />
+          </div>
+          <small class="msg-erro" id="erroSenha" data-i18n="login.erro_senha">Por favor, insira sua senha.</small>
+        </div>
+
+        <div class="d-flex justify-content-end" style="margin-top:8px; margin-bottom:1.5rem;">
+          <a href="#" class="link-senha" data-bs-toggle="modal" data-bs-target="#modalRecuperarSenha" data-i18n="login.esqueceu_senha">Esqueceu a senha?</a>
+        </div>
+
+        <div class="d-flex justify-content-center" style="margin-top:3rem;">
+          <button id="btnEntrar" class="btn btn-entrar" onclick="fazerLogin()" data-i18n="login.btn_entrar">Entrar</button>
+        </div>
+
+        <p style="font-size:0.78rem; color:var(--cinza-texto); text-align:center; margin-top:2.5rem; margin-bottom:0;">
+          <span data-i18n="login.sem_conta">Ainda não tem conta?</span>
+          <a class="link-criar" data-bs-toggle="modal" data-bs-target="#modalCriarConta" data-i18n="login.criar_conta">Criar conta</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL CRIAR CONTA -->
+  <div class="modal fade" id="modalCriarConta" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width:460px;">
+      <div class="modal-content" style="border-radius:16px; border:none; box-shadow:0 8px 32px rgba(0,0,0,0.18); overflow:hidden; font-family:'Sora',sans-serif;">
+
+        <div style="background:#0a2e1f; padding:1.5rem 2rem 1rem; position:relative;">
+          <p style="font-size:0.72rem; color:#6ee7b7; margin-bottom:2px;" data-i18n="login.modal.bemvindo">Bem-vindo</p>
+          <p style="font-size:1rem; font-weight:700; color:#fff; letter-spacing:1.5px; text-transform:uppercase; margin:0;" data-i18n="login.modal.titulo">Criar conta</p>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+            style="position:absolute; top:1.25rem; right:1.5rem; opacity:0.6;"></button>
+        </div>
+
+        <div style="padding:1.75rem 2rem 2rem; background:#fff;">
+
+          <div id="msgSucessoCadastro" style="display:none; background:#e8f5e9; color:#1a5c42; border-radius:8px; padding:10px 14px; font-size:0.82rem; font-weight:600; margin-bottom:1rem; border:1px solid #a7f3d0;">
+            <i class="bi bi-check-circle me-1"></i> <span data-i18n="login.modal.sucesso">Conta criada! Acessando o sistema...</span>
+          </div>
+
+          <div class="mb-3">
+            <label style="font-size:0.82rem; font-weight:600; color:#374151; display:block; margin-bottom:5px;" data-i18n="login.modal.nome_label">Nome</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-person" style="font-size:14px;"></i></span>
+              <input id="cadNome" type="text" class="form-control" placeholder="Seu nome completo" data-i18n-placeholder="login.modal.nome_placeholder" />
+            </div>
+            <small class="msg-erro" id="erroNome" data-i18n="login.modal.erro_nome">Insira seu nome.</small>
+          </div>
+
+          <div class="mb-3">
+            <label style="font-size:0.82rem; font-weight:600; color:#374151; display:block; margin-bottom:5px;" data-i18n="login.modal.email_label">E-mail</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-envelope" style="font-size:14px;"></i></span>
+              <input id="cadEmail" type="email" class="form-control" placeholder="Seu e-mail" data-i18n-placeholder="login.modal.email_placeholder" />
+            </div>
+            <small class="msg-erro" id="erroEmailCad" data-i18n="login.modal.erro_email">Insira um e-mail válido.</small>
+          </div>
+
+          <div class="mb-4">
+            <label style="font-size:0.82rem; font-weight:600; color:#374151; display:block; margin-bottom:5px;" data-i18n="login.modal.senha_label">Senha</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-lock" style="font-size:14px;"></i></span>
+              <input id="cadSenha" type="password" class="form-control" placeholder="Mínimo 6 caracteres" style="border-right:none;" data-i18n-placeholder="login.modal.senha_placeholder" />
+              <button type="button" onclick="toggleSenha()"
+                style="background:#f9fafb; border:1.5px solid #d1d5db; border-left:none; border-radius:0 8px 8px 0; padding:0 12px; cursor:pointer; color:#9ca3af;">
+                <i class="bi bi-eye" id="iconeSenha" style="font-size:13px;"></i>
+              </button>
+            </div>
+            <small class="msg-erro" id="erroSenhaCad" data-i18n="login.modal.erro_senha">Mínimo 6 caracteres.</small>
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <button id="btnCadastrar" onclick="cadastrarUsuario()"
+              style="background:#1a5c42; color:#fff; font-size:0.9rem; font-weight:600; padding:10px 40px; border:none; border-radius:8px; font-family:'Sora',sans-serif; cursor:pointer; transition:background .2s;" data-i18n="login.modal.btn_cadastrar">
+              Cadastrar
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="i18n.js"></script>
+  <script src="login.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', applySettings);</script>
+
+  <!-- MODAL 2FA LOGIN -->
+  <div class="modal fade" id="modal2FALogin" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width:400px;">
+      <div class="modal-content" style="border-radius:16px; border:none; box-shadow:0 8px 32px rgba(0,0,0,0.18); overflow:hidden; font-family:'Sora',sans-serif;">
+
+        <!-- Cabeçalho -->
+        <div style="background:#0a2e1f; padding:1.5rem 2rem 1rem;">
+          <p style="font-size:0.72rem; color:#6ee7b7; margin-bottom:2px;" data-i18n="login.2fa.subtitulo">Verificação de segurança</p>
+          <p style="font-size:1rem; font-weight:700; color:#fff; margin:0; text-transform:uppercase; letter-spacing:1px;" data-i18n="login.2fa.titulo">
+            Autenticação em 2 Fatores
+          </p>
+        </div>
+
+        <!-- Corpo -->
+        <div style="padding:1.75rem 2rem 2rem; background:#fff;">
+
+          <div style="text-align:center; margin-bottom:1.5rem;">
+            <div style="width:56px; height:56px; border-radius:50%; background:#f0f4f2; display:inline-flex; align-items:center; justify-content:center; margin-bottom:10px;">
+              <i class="bi bi-envelope-check-fill" style="font-size:1.6rem; color:#1a5c42;"></i>
+            </div>
+            <p style="font-size:0.88rem; color:#6b7280; margin:0;">
+              <span data-i18n="login.2fa.texto_a">Enviamos um código para </span><strong id="email2FALogin"></strong><span data-i18n="login.2fa.texto_b">. Digite-o abaixo para concluir o login.</span>
+            </p>
+          </div>
+
+          <div class="mb-3">
+            <label style="font-size:0.82rem; font-weight:600; color:#374151; display:block; margin-bottom:5px;" data-i18n="login.2fa.label">
+              Código de verificação
+            </label>
+            <div style="position:relative;">
+              <input id="input2FALogin" type="text" maxlength="6" autocomplete="one-time-code"
+                style="width:100%; background:#f9fafb; border:1.5px solid #d1d5db; border-radius:8px; font-size:1rem; letter-spacing:3px; text-align:center; padding:9px 40px 9px 14px; font-family:'Sora',sans-serif; outline:none; color:#111827;"
+                placeholder="••••••"
+                onkeydown="if(event.key==='Enter') verificar2FALogin()" />
+            </div>
+            <small id="erro2FALogin" style="display:none; color:#e53935; font-size:0.75rem; margin-top:4px;"></small>
+            <small id="expiracao2FALogin" style="display:block; color:#9ca3af; font-size:0.75rem; margin-top:6px;"></small>
+          </div>
+
+          <button onclick="verificar2FALogin()"
+            style="width:100%; background:#1a5c42; color:#fff; font-size:0.9rem; font-weight:600; padding:11px; border:none; border-radius:8px; font-family:'Sora',sans-serif; cursor:pointer; transition:background .2s;"
+            onmouseover="this.style.background='#0a2e1f'" onmouseout="this.style.background='#1a5c42'" data-i18n="login.2fa.btn_verificar">
+            Verificar
+          </button>
+
+          <p style="font-size:0.8rem; text-align:center; margin-top:1rem; margin-bottom:0;">
+            <span data-i18n="login.2fa.nao_recebeu">Não recebeu?</span>
+            <a href="#" id="btnReenviar2FA" onclick="reenviarCodigo2FALogin(); return false;" style="color:#1a5c42; font-weight:600; text-decoration:none;" data-i18n="login.2fa.reenviar">
+              Reenviar código
+            </a>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  </div><!-- MODAL RECUPERAR SENHA -->
+<div class="modal fade" id="modalRecuperarSenha" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="max-width:400px;">
+    <div class="modal-content" style="border-radius:16px; border:none; box-shadow:0 8px 32px rgba(0,0,0,0.18); overflow:hidden; font-family:'Sora',sans-serif;">
+
+      <div style="background:#0a2e1f; padding:1.5rem 2rem 1rem; position:relative;">
+        <p style="font-size:0.72rem; color:#6ee7b7; margin-bottom:2px;" data-i18n="login.reset.subtitulo">Recuperação de conta</p>
+        <p style="font-size:1rem; font-weight:700; color:#fff; margin:0; text-transform:uppercase; letter-spacing:1px;" data-i18n="login.reset.titulo">
+          Redefinir senha
+        </p>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+          style="position:absolute; top:1.25rem; right:1.5rem; opacity:0.6;"></button>
+      </div>
+
+      <div style="padding:1.75rem 2rem 2rem; background:#fff;">
+
+        <!-- PASSO 1: e-mail -->
+        <div id="rsPasso1">
+          <p style="font-size:0.85rem; color:#6b7280; margin-bottom:1.25rem;" data-i18n="login.reset.email_texto">
+            Digite seu e-mail para receber um código de redefinição.
+          </p>
+
+          <div class="mb-3">
+            <label style="font-size:0.82rem; font-weight:600; color:#374151; display:block; margin-bottom:5px;" data-i18n="login.reset.email_label">E-mail</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-envelope" style="font-size:14px;"></i></span>
+              <input id="rsEmail" type="email" class="form-control" placeholder="Seu e-mail" data-i18n-placeholder="login.reset.email_placeholder"
+                onkeydown="if(event.key==='Enter') enviarCodigoRecuperacao()" />
+            </div>
+            <small class="msg-erro" id="rsErroEmail" style="display:none;" data-i18n="login.reset.erro_email">Insira um e-mail válido.</small>
+          </div>
+
+          <button id="rsBtnEnviar" onclick="enviarCodigoRecuperacao()"
+            style="width:100%; background:#1a5c42; color:#fff; font-size:0.9rem; font-weight:600; padding:11px; border:none; border-radius:8px; font-family:'Sora',sans-serif; cursor:pointer; transition:background .2s;"
+            onmouseover="this.style.background='#0a2e1f'" onmouseout="this.style.background='#1a5c42'" data-i18n="login.reset.btn_enviar">
+            Enviar código
+          </button>
+        </div>
+
+        <!-- PASSO 2: código + nova senha -->
+        <div id="rsPasso2" style="display:none;">
+          <p style="font-size:0.85rem; color:#6b7280; margin-bottom:1.25rem;">
+            <span data-i18n="login.reset.enviado_texto_a">Enviamos um código para </span><strong id="rsEmailConfirmado"></strong><span data-i18n="login.reset.enviado_texto_b">. Digite-o abaixo e escolha sua nova senha.</span>
+          </p>
+
+          <div class="mb-3">
+            <label style="font-size:0.82rem; font-weight:600; color:#374151; display:block; margin-bottom:5px;" data-i18n="login.reset.codigo_label">Código de verificação</label>
+            <input id="rsCodigo" type="text" maxlength="6" autocomplete="one-time-code"
+              style="width:100%; background:#f9fafb; border:1.5px solid #d1d5db; border-radius:8px; font-size:1rem; letter-spacing:3px; text-align:center; padding:9px 14px; font-family:'Sora',sans-serif; outline:none; color:#111827;"
+              placeholder="••••••" />
+            <small id="rsErroCodigo" style="display:none; color:#e53935; font-size:0.75rem; margin-top:4px;"></small>
+            <small id="rsExpiracao" style="display:block; color:#9ca3af; font-size:0.75rem; margin-top:6px;"></small>
+          </div>
+
+          <div class="mb-3">
+            <label style="font-size:0.82rem; font-weight:600; color:#374151; display:block; margin-bottom:5px;" data-i18n="login.reset.nova_senha_label">Nova senha</label>
+            <input id="rsNovaSenha" type="password" class="form-control" placeholder="Mínimo 6 caracteres" data-i18n-placeholder="login.reset.nova_senha_placeholder" />
+            <small class="msg-erro" id="rsErroSenha" style="display:none;" data-i18n="login.reset.erro_senha">Mínimo 6 caracteres.</small>
+          </div>
+
+          <div class="mb-4">
+            <label style="font-size:0.82rem; font-weight:600; color:#374151; display:block; margin-bottom:5px;" data-i18n="login.reset.confirmar_senha_label">Confirmar nova senha</label>
+            <input id="rsConfirmarSenha" type="password" class="form-control" placeholder="Repita a nova senha"
+              onkeydown="if(event.key==='Enter') redefinirSenha()" />
+            <small class="msg-erro" id="rsErroConfirmar" style="display:none;" data-i18n="login.reset.erro_confirmar">As senhas não coincidem.</small>
+          </div>
+
+          <button id="rsBtnRedefinir" onclick="redefinirSenha()"
+            style="width:100%; background:#1a5c42; color:#fff; font-size:0.9rem; font-weight:600; padding:11px; border:none; border-radius:8px; font-family:'Sora',sans-serif; cursor:pointer; transition:background .2s;"
+            onmouseover="this.style.background='#0a2e1f'" onmouseout="this.style.background='#1a5c42'" data-i18n="login.reset.btn_redefinir">
+            Redefinir senha
+          </button>
+
+          <p style="font-size:0.8rem; text-align:center; margin-top:1rem; margin-bottom:0;">
+            <span data-i18n="login.reset.nao_recebeu">Não recebeu?</span>
+            <a href="#" id="rsBtnReenviar" onclick="reenviarCodigoRecuperacao(); return false;" style="color:#1a5c42; font-weight:600; text-decoration:none;" data-i18n="login.reset.reenviar">
+              Reenviar código
+            </a>
+          </p>
+        </div>
+
+        <!-- SUCESSO -->
+        <div id="rsSucesso" style="display:none; text-align:center;">
+          <div style="width:56px; height:56px; border-radius:50%; background:#e8f5e9; display:inline-flex; align-items:center; justify-content:center; margin-bottom:12px;">
+            <i class="bi bi-check-circle-fill" style="font-size:1.6rem; color:#1a5c42;"></i>
+          </div>
+          <p style="font-size:0.9rem; color:#1a5c42; font-weight:600;" data-i18n="login.reset.msg_sucesso">
+            Senha redefinida com sucesso! Você já pode entrar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

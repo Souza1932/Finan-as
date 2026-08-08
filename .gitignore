@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+node_modules/
+Financas-app/dist/
+**/application.properties
+!**/application.properties.example
+!Financas-app/build/
+!Financas-app/build/**
