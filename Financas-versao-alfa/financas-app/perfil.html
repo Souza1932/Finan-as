@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finanças</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --verde-escuro: #0a2e1f;
+      --verde-medio:  #1a5c42;
+      --verde-claro:  #4ade80;
+      --verde-suave:  #a7f3d0;
+      --fundo:        #f0f4f2;
+      --branco:       #ffffff;
+      --cinza-borda:  #e5e7eb;
+      --cinza-texto:  #6b7280;
+      --texto:        #111827;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Sora', sans-serif;
+      background: var(--fundo);
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: var(--verde-escuro);
+      height: 58px;
+      padding: 0 2rem;
+    }
+    .navbar-brand {
+      display: flex; align-items: center; gap: 8px;
+      color: #fff !important; font-weight: 700;
+      font-size: 1rem; letter-spacing: 2px; text-transform: uppercase;
+    }
+    .navbar-brand .icone-nav {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--verde-medio);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--verde-claro); font-size: 1rem;
+    }
+    .btn-voltar {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 8px;
+      font-family: 'Sora', sans-serif;
+      cursor: pointer;
+      transition: background .2s;
+      text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .btn-voltar:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+    /* ── CONTEÚDO ── */
+    .pagina { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+    /* ── CABEÇALHO DO PERFIL ── */
+    .perfil-header {
+      display: flex; align-items: center; gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .avatar {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: var(--verde-medio);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--verde-claro); font-size: 2.2rem;
+      flex-shrink: 0;
+    }
+    .perfil-header h1 {
+      font-size: 1.8rem; font-weight: 700;
+      color: var(--verde-escuro); margin: 0 0 4px;
+    }
+    .perfil-header p {
+      font-size: 0.88rem; color: var(--cinza-texto); margin: 0;
+    }
+
+    /* ── CARDS ── */
+    .card-secao {
+      background: #f7fbf9;
+      border-radius: 14px;
+      border: 1px solid var(--cinza-borda);
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .secao-titulo {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 1rem; font-weight: 700;
+      color: var(--texto); margin-bottom: 4px;
+    }
+    .secao-titulo i { color: var(--verde-medio); font-size: 1.1rem; }
+    .secao-sub {
+      font-size: 0.82rem; color: var(--cinza-texto);
+      margin-bottom: 1.5rem;
+    }
+    .divisor-secao {
+      border: none; border-top: 1px solid var(--cinza-borda);
+      margin: 1.25rem 0;
+    }
+
+    /* ── CAMPOS ── */
+    .campo-label {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--texto); margin-bottom: 6px;
+    }
+    .campo-label i { color: var(--cinza-texto); }
+    .campo-input {
+      width: 100%;
+      background: var(--fundo);
+      border: 1.5px solid var(--cinza-borda);
+      border-radius: 8px;
+      padding: 9px 14px;
+      font-size: 0.88rem;
+      color: var(--texto);
+      font-family: 'Sora', sans-serif;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .campo-input:focus {
+      border-color: var(--verde-medio);
+      box-shadow: 0 0 0 3px rgba(26,92,66,0.1);
+    }
+
+    /* ── SELECT ── */
+    .select-custom {
+      width: 100%; max-width: 300px;
+      background: var(--fundo);
+      border: 1.5px solid var(--cinza-borda);
+      border-radius: 8px;
+      padding: 9px 14px;
+      font-size: 0.88rem;
+      color: var(--texto);
+      font-family: 'Sora', sans-serif;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16'%3E%3Cpath fill='%236b7280' d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+    .select-custom:focus { border-color: var(--verde-medio); }
+
+    /* ── TOGGLE ── */
+    .toggle-row {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 4px 0;
+    }
+    .toggle-info .toggle-titulo {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.88rem; font-weight: 600; color: var(--texto);
+      margin-bottom: 2px;
+    }
+    .toggle-info .toggle-titulo i { color: var(--verde-medio); }
+    .toggle-info .toggle-sub {
+      font-size: 0.78rem; color: var(--cinza-texto);
+    }
+
+    /* Toggle switch customizado */
+    .switch {
+      position: relative; width: 44px; height: 24px; flex-shrink: 0;
+    }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute; cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #d1d5db; border-radius: 24px;
+      transition: .3s;
+    }
+    .slider:before {
+      content: ""; position: absolute;
+      width: 18px; height: 18px; border-radius: 50%;
+      left: 3px; bottom: 3px; background: #fff;
+      transition: .3s;
+    }
+    input:checked + .slider { background: var(--verde-medio); }
+    input:checked + .slider:before { transform: translateX(20px); }
+
+    /* ── BOTÕES RODAPÉ ── */
+    .rodape-acoes {
+      display: flex; justify-content: flex-end;
+      gap: 12px; margin-top: 2rem;
+    }
+    .btn-cancelar {
+      background: var(--branco);
+      border: 1.5px solid var(--cinza-borda);
+      color: var(--texto);
+      font-size: 0.9rem; font-weight: 600;
+      padding: 10px 28px; border-radius: 8px;
+      font-family: 'Sora', sans-serif; cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-cancelar:hover { background: var(--fundo); }
+    .btn-salvar {
+      background: var(--verde-escuro);
+      border: none; color: #fff;
+      font-size: 0.9rem; font-weight: 600;
+      padding: 10px 28px; border-radius: 8px;
+      font-family: 'Sora', sans-serif; cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-salvar:hover { background: var(--verde-medio); }
+  </style>
+</head>
+<body>
+<!-- NAVBAR -->
+  <nav class="navbar d-flex align-items-center justify-content-between">
+    <a class="navbar-brand" href="dashboard.html">
+      <div class="icone-nav"><i class="bi bi-currency-dollar"></i></div>
+      <span data-i18n="nav.brand">Finanças</span>
+    </a>
+    <a class="btn-voltar" href="#" onclick="window.location.href='dashboard.html'">
+      <i class="bi bi-arrow-left"></i> <span data-i18n="nav.back">Voltar</span>
+    </a>
+  </nav>
+
+  <!-- CONTEÚDO -->
+  <div class="pagina">
+    <!-- Cabeçalho -->
+    <div class="perfil-header">
+      <div class="avatar">
+        <span id="avatarInicial" style="font-weight:700; color:var(--verde-claro);">U</span>
+      </div>
+      <div>
+        <h1 data-i18n="perfil.title">Perfil</h1>
+        <p data-i18n="perfil.subtitle">Gerencie suas informações pessoais e preferências</p>
+      </div>
+    </div>
+
+    <!-- Informações Pessoais -->
+    <div class="card-secao">
+      <div class="secao-titulo">
+        <i class="bi bi-person"></i> <span data-i18n="perfil.personal_info">Informações Pessoais</span>
+      </div>
+      <p class="secao-sub" data-i18n="perfil.personal_info.sub">Gerencie suas informações pessoais e preferências</p>
+
+      <div class="row g-3">
+        <div class="col-12 col-md-6">
+          <label class="campo-label">
+            <i class="bi bi-person"></i><span data-i18n="perfil.nome">Nome</span>
+          </label>
+          <input id="perfilNome" type="text" class="campo-input" 
+                 placeholder="Seu nome completo" data-i18n-placeholder="perfil.nome.placeholder" />
+        </div>
+        <div class="gmail">
+          <label class="campo-label">
+            <i class="e-mail"></i><span data-i18n="perfil.email">Email</span>
+          </label>
+          <input id="perfilEmail" type="email" class="campo-input" 
+                 placeholder="Seu e-mail" data-i18n-placeholder="perfil.email.placeholder" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Configurações da Conta -->
+    <div class="card-secao">
+      <div class="secao-titulo">
+        <i class="bi bi-shield"></i> <span data-i18n="perfil.account_settings">Configurações da Conta</span>
+      </div>
+
+      <!-- Idioma -->
+      <div class="mb-3">
+        <div class="campo-label" style="margin-bottom:4px;">
+          <i class="bi bi-globe"></i> <span data-i18n="perfil.idioma">Idioma</span>
+        </div>
+        <p style="font-size:0.78rem; color:var(--cinza-texto); margin-bottom:10px;" 
+           data-i18n="perfil.idioma.sub">Selecione o idioma da interface</p>
+   <select id="selectIdioma" class="select-custom" onchange="mudarIdioma(this.value)">
+       <option value="pt">🇧🇷 Português</option>
+       <option value="en">🇺🇸 English</option>
+       <option value="es">🇪🇸 Español</option>
+       <option value="fr">🇫🇷 Français</option>
+       <option value="de">🇩🇪 Deutsch</option>
+       <option value="jp">🇯🇵 日本語</option>
+       <option value="it">🇮🇹 Italiano</option>
+       <option value="po">🇵🇱 Polski</option>
+       <option value="ne">🇳🇱Nederlands</option>
+    </select>
+      </div>
+      <hr class="divisor-secao"/>
+
+      <!-- Aparência -->
+      <div class="mb-3">
+        <div class="campo-label" style="margin-bottom:4px;">
+          <i class="bi bi-palette"></i> <span data-i18n="perfil.aparencia">Aparência</span>
+        </div>
+        <p style="font-size:0.78rem; color:var(--cinza-texto); margin-bottom:10px;" 
+           data-i18n="perfil.aparencia.sub">Selecione o tema da interface</p>
+        <select id="selectTema" class="select-custom" onchange="mudarTema(this.value)">
+          <option value="claro" data-i18n="perfil.theme.light">☀️ Claro</option>
+          <option value="escuro" data-i18n="perfil.theme.dark">🌙 Escuro</option>
+        </select>
+      </div>
+      <hr class="divisor-secao"/>
+
+      <!-- Notificações -->
+      <div class="toggle-row mb-3">
+        <div class="toggle-info">
+          <div class="toggle-titulo">
+            <i class="bi bi-bell"></i> <span data-i18n="perfil.notif">Notificações por Email</span>
+          </div>
+          <div class="toggle-sub" data-i18n="perfil.notif.sub">Receber notificações por email</div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggleNotif" checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <hr class="divisor-secao"/>
+
+      <!-- 2FA -->
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <div class="toggle-titulo">
+            <i class="bi bi-shield-lock"></i> <span data-i18n="perfil.2fa">Autenticação de Dois Fatores</span>
+          </div>
+          <div class="toggle-sub" data-i18n="perfil.2fa.sub">Adicione uma camada extra de segurança</div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggle2FA" onchange="gerenciar2FA(this)" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div id="status2FA" style="display:none; margin-top:14px; padding:12px 16px; background:#f0f4f2; border-radius:8px; border-left:3px solid #1a5c42;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <i class="bi bi-shield-check" style="color:#1a5c42; font-size:1.1rem;"></i>
+          <span style="font-size:0.85rem; font-weight:600; color:#1a5c42;" data-i18n="perfil.2fa.active">2FA ativo</span>
+        </div>
+        <div style="font-size:0.78rem; color:#6b7280; margin-top:4px;" data-i18n="perfil.2fa.active_sub">
+          Um código será enviado para o seu e-mail a cada login.
+        </div>
+      </div>
+    </div>
+
+    <!-- Botões -->
+    <div class="rodape-acoes">
+      <button class="btn-cancelar" onclick="window.location.href='dashboard.html'" data-i18n="buttons.cancel">Cancelar</button>
+      <button class="btn-salvar" onclick="salvarPerfil()" data-i18n="buttons.save">Salvar Alterações</button>
+    </div>
+
+    <!-- Zona de Perigo — Exclusão de Conta -->
+    <div class="card-secao" style="border-color:#f5c2c2; background:#fff6f6; padding:1rem 1.25rem; max-width:420px; margin-top:2.5rem;">
+      <div class="secao-titulo" style="color:#b91c1c; font-size:0.88rem; margin-bottom:2px; gap:6px;">
+        <i class="bi bi-exclamation-triangle" style="color:#b91c1c; font-size:0.95rem;"></i>
+        <span data-i18n="perfil.danger_zone">Zona de Perigo</span>
+      </div>
+      <p class="secao-sub" style="font-size:0.78rem; margin-bottom:0.85rem;" data-i18n="perfil.danger_zone.sub">
+        Excluir sua conta é uma ação permanente e não pode ser desfeita.
+      </p>
+      <button type="button" class="btn-cancelar"
+              style="border-color:#b91c1c; color:#b91c1c; font-size:0.8rem; padding:6px 16px;"
+              onclick="abrirModalExclusaoConta()"
+              data-i18n="perfil.excluir_conta">
+        <i class="bi bi-trash3"></i> Excluir minha conta
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal de confirmação de exclusão de conta -->
+  <div class="modal fade" id="modalExcluirConta" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="border-radius:14px; font-family:'Sora', sans-serif;">
+        <div class="modal-header" style="border-bottom:1px solid var(--cinza-borda);">
+          <h5 class="modal-title" style="color:#b91c1c; font-weight:700;">
+            <i class="bi bi-exclamation-triangle"></i>
+            <span data-i18n="perfil.modal_excluir.titulo">Excluir conta permanentemente?</span>
+          </h5>
+          <button type="button" class="btn-close" onclick="fecharModalExclusaoConta()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p style="color:var(--texto); font-size:0.9rem;">
+            <span data-i18n="perfil.modal_excluir.aviso1_a">Essa ação é </span><strong data-i18n="perfil.modal_excluir.aviso1_b">permanente e irreversível</strong><span data-i18n="perfil.modal_excluir.aviso1_c">. Todos os seus dados — cadastro, preferências e informações financeiras salvas neste dispositivo — serão apagados definitivamente. Não será possível recuperar nada depois. Digite EXCLUIR em maiúsculo.</span>
+          </p>
+          <p style="color:var(--cinza-texto); font-size:0.85rem;" data-i18n="perfil.modal_excluir.aviso2">
+            Você também receberá um e-mail confirmando a exclusão da conta.
+          </p>
+          <label class="campo-label" style="margin-top:0.75rem;">
+            <span><span data-i18n="perfil.modal_excluir.digite_a">Para confirmar, digite </span><strong data-i18n="perfil.modal_excluir.digite_b">EXCLUIR</strong><span data-i18n="perfil.modal_excluir.digite_c"> abaixo:</span></span>
+          </label>
+          <input id="confirmacaoExclusaoInput" type="text" class="campo-input" autocomplete="off"
+                 oninput="validarConfirmacaoExclusao()" />
+        </div>
+        <div class="modal-footer" style="border-top:1px solid var(--cinza-borda);">
+          <button type="button" class="btn-cancelar" onclick="fecharModalExclusaoConta()" data-i18n="buttons.cancel">Cancelar</button>
+          <button type="button" id="btnConfirmarExclusao" class="btn-salvar" style="background:#b91c1c;" disabled
+                  onclick="confirmarExclusaoConta()">
+            <span data-i18n="perfil.modal_excluir.confirmar">Excluir permanentemente</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+ </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

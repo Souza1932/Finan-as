@@ -1,0 +1,294 @@
+:root {
+  --verde-escuro: #0a2e1f;
+  --verde-medio:  #1a5c42;
+  --verde-claro:  #4ade80;
+  --branco:       #ffffff;
+  --fundo:        #f0f4f2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Sora', sans-serif;
+  background: var(--fundo);
+  min-height: 100vh;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+  background: var(--verde-escuro);
+  height: 58px;
+  padding: 0 2rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--branco) !important;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.navbar-brand .icone-nav {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--verde-medio);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--verde-claro);
+  font-size: 1rem;
+}
+
+.navbar-nav .nav-link {
+  color: rgba(255,255,255,0.85) !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0 14px !important;
+  transition: color .2s;
+  white-space: nowrap;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--verde-claro) !important;
+}
+
+.navbar-toggler {
+  border-color: rgba(255,255,255,0.3);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* ── CARDS ── */
+.card-financeiro {
+  background: var(--branco);
+  border: none;
+  border-radius: 14px;
+  padding: 24px 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  position: relative;
+  height: 100%;
+}
+
+.card-financeiro .card-rotulo {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.card-financeiro .card-valor {
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.card-financeiro .card-sub {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+.card-financeiro .badge-card {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.badge-up   { background: #e8f5e9; color: #2e7d32; }
+.badge-down { background: #ffebee; color: #c62828; }
+.badge-ok   { background: #e3f2fd; color: #1565c0; }
+
+.rotulo-entrada { color: var(--verde-medio); }
+.rotulo-saida   { color: #e53935; }
+.rotulo-saldo   { color: #1565c0; }
+.valor-saldo    { color: #1565c0 !important; }
+
+/* ── GRÁFICO ── */
+.chart-card {
+  background: var(--branco);
+  border-radius: 14px;
+  padding: 28px 32px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.chart-titulo {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.legenda-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.legenda-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+canvas { max-height: 360px; }
+
+/* ── FAB ── */
+.btn-fab {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--verde-medio);
+  color: var(--branco);
+  border: none;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: background .2s, transform .2s;
+}
+
+.btn-fab:hover {
+  background: var(--verde-escuro);
+  transform: scale(1.08);
+  color: var(--verde-claro);
+}
+
+.fab-opcao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.fab-label {
+  background: #0a2e1f;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'Sora', sans-serif;
+  padding: 5px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.fab-mini {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #1a5c42;
+  color: #4ade80;
+  border: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+
+.fab-mini:hover {
+  background: #0a2e1f;
+  transform: scale(1.08);
+}
+
+/* ── CALCULADORA ── */
+.cbtn {
+  height: 68px;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter .1s, transform .1s;
+  user-select: none;
+}
+
+.cbtn:active { filter: brightness(1.3); transform: scale(0.94); }
+.cbtn-func  { background: #1a5c42; color: #fff; }
+.cbtn-func:hover { background: #236b4e; }
+.cbtn-num   { background: #163d2b; color: #fff; }
+.cbtn-num:hover { background: #1e4f38; }
+.cbtn-op    { background: #4ade80; color: #0a2e1f; font-weight: 700; }
+.cbtn-op:hover { background: #6ee7a0; }
+.cbtn-op.ativo { background: #fff; color: #0a2e1f; }
+.cbtn-eq    { background: #4ade80; color: #0a2e1f; font-weight: 700; }
+.cbtn-eq:hover { background: #6ee7a0; }
+
+
+
+
+/* Destaque da coluna do mês pesquisado na planilha de despesas */
+.coluna-destacada {
+  background: #fff3cd !important;
+  box-shadow: inset 0 0 0 2px #f0ad4e;
+}
+
+/* Select de operação da mesclagem (Soma/Subtração/Multiplicação/Divisão) */
+.select-mesclagem,
+.select-mesclagem::picker(select) {
+  appearance: base-select; /* liga o modo novo, permite estilizar a lista aberta (Chrome 135+) */
+}
+
+.select-mesclagem {
+  font-family: 'Sora', sans-serif;
+  font-size: 0.78rem;
+  color: #1a5c42;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.select-mesclagem::picker(select) {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.select-mesclagem option {
+  color: #1a5c42;
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.select-mesclagem option:hover,
+.select-mesclagem option:checked {
+  background: #e8f5e9;
+  color: #1a5c42;
+}
+
+
+
+
+
+
+
+
+

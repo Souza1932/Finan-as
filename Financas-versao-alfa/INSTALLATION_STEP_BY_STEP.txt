@@ -1,0 +1,54 @@
+INSTALLATION STEP BY STEP
+
+1- Download MySQL in the Linux/Ubuntu terminal https://www.youtube.com/watch?v=Uuw4KPiVATc
+2- After downloading, run the command CREATE DATABASE financas
+3- Run the command USE financas
+4- MYSQL COMMAND TO CREATE THE APP USER:   CREATE USER IF NOT EXISTS 'financas_app'@'localhost' IDENTIFIED BY 'YourStrongPassword123';
+Replace YourStrongPassword123 WITH A PASSWORD OF YOUR OWN.
+5- GRANT PRIVILEGES TO THE USER: GRANT ALL PRIVILEGES ON financas.* TO 'financas_app'@'localhost';
+6- APPLY THE PRIVILEGES: FLUSH PRIVILEGES;
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+7- Extract the Financas-app and financas-email-api files
+8- Open the financas-email-api folder
+9- Open the src folder
+10- Open the main folder
+11- Open the resources folder
+12- Open the application.properties file
+13- Enter the financas_app user's password in the spring.datasource.password= line
+
+# ── SMTP Configuration (example using Gmail) ── IN THE PROPERTIES FILE'S SMTP CONFIGURATION
+
+14- In the line: spring.mail.password=  CREATE A PASSWORD THROUGH THIS LINK  myaccount.google.com/apppasswords
+15- App name
+16- Paste the generated password into the spring.mail.password= line
+17- Save the updated file
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+18- Open the Linux/Ubuntu terminal
+19- Run the command cd ~/financas-email-api
+20- Run mvn spring-boot:run
+21- Open a new terminal
+22- Run the command cd ~/financas-app
+23- Run the command npm install
+24- Run the command cd ~/financas-app && npm start
+25- Wait for it to launch
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+EXTRA MYSQL COMMANDS IN CASE YOU NEED THEM
+
+CHANGE PASSWORD: ALTER USER 'financas_app'@'localhost' IDENTIFIED BY 'YOUR_NEW_PASSWORD_HERE';
+SELECT * FROM usuarios;
+CHECK USER PRIVILEGES: mysql -u financas_app -p -h 127.0.0.1 financas -e "SELECT 1;"
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+ONCE INSTALLED, YOU DON'T NEED TO FOLLOW THESE STEPS AGAIN — JUST RUN 2 COMMANDS IN THE TERMINAL:
+
+1- cd ~/financas-email-api
+2- mvn spring-boot:run
+3- Open a new terminal
+4- cd ~/financas-app && npm start

@@ -1,0 +1,90 @@
+PASSO A PASSO DE INSTALAÇÃO
+
+1- Baixe o MySQL no terminal Linux-Ubuntu https://www.youtube.com/watch?v=Uuw4KPiVATc
+2- Depois de baixar insira o comando CREATE DATABASE financas
+3- Insira o comando USE financas
+4- COMANDO MYSQL PARA CRIAR USUÁRIO ROOT:   CREATE USER IF NOT EXISTS 'financas_app'@'localhost' IDENTIFIED BY 'SuaSenhaForte123'; 
+No lugar de SuaSenhaForte123 CRIE UMA SENHA PARA SUBSTITUIR.
+5- DAR PERMISSÃO AO USUÁRIO: GRANT ALL PRIVILEGES ON financas.* TO 'financas_app'@'localhost';
+6- APLICAR AS PERMISSÕES: FLUSH PRIVILEGES;
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+7- Extrair os arquivos Financas-app e financas-email-api
+8- Acesse o arquivo financas-email-api
+6- Clique no arquivo src
+9- Clique no arquivo main
+10- Clique no resources
+11- Clique no application.properties
+12- Insira a senha do usuário financas-app no trecho spring.datasource.password= SUA_SENHA_FINANCAS_APP
+
+
+
+# ── Configuração SMTP (exemplo usando Gmail) ── NO CONFIGURAÇÃO SMTP DO PROPERTIES
+
+13- No trecho: spring.mail.password=  CRIE UMA SENHA ATRAVÉS DESSE LINK  myaccount.google.com/apppasswords 
+14- Nome do app
+15- Cole a senha gerada no trecho spring.mail.password=
+16- Salva as informações atualizadas no arquivo.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+17- Abra o terminal do Linux-Ubuntu
+18- Insira o comando cd ~/financas-email-api
+19- Insira o mvn spring-boot:run
+20- Clique em novo terminal ou New Terminal
+21- Insira o comando cd ~/financas-app
+22- Insira o comando npm install
+23- Insira o comando cd ~/financas-app && npm start
+24- Espere executar
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+COMANDO MYSQL EXETRAS CASO PRECISEM 
+
+TROCAR SENHA: ALTER USER 'financas_app'@'localhost' IDENTIFIED BY 'SUA_SENHA_NOVA_AQUI';
+SELECT*FROM usuarios;
+VERIFICAR A SENHA DE PRIVILÉGIUS: mysql -u financas_app -p -h 127.0.0.1 financas -e "SELECT 1;"
+
+
+
+
+
+
+
+DEPOIS DE INSTALADO NÃO PRECISA SEGUIR ESSES PASSOS NOVAMENTE, BASTA INSERIR 2 COMANDOS NO TERMINAL
+
+1- cd ~/financas-email-api
+2- mvn spring-boot:run
+3- new terminal ou novo terminal
+4- cd ~/financas-app && npm start
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
