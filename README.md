@@ -116,13 +116,18 @@ To build a modern interface, **Claude** and **Gemini** were used as assistance t
 <img width="1918" height="1055" alt="Captura de ecrã de 2026-08-10 13-43-10" src="https://github.com/user-attachments/assets/fe9deb8a-88ba-4cee-a586-f1bf1cea31cc" />
 
 
+
 ## TELA INICIAL 
+
 
 <img width="1857" height="991" alt="Captura de ecrã de 2026-08-10 13-46-45" src="https://github.com/user-attachments/assets/18e189dd-8348-4296-855f-19c5ae7d4de5" />
 
+
 <img width="1857" height="989" alt="Captura de ecrã de 2026-08-10 13-44-03" src="https://github.com/user-attachments/assets/1f2b3929-926f-492a-8a81-b3018086cdfc" />
 
+
 <img width="1857" height="991" alt="Captura de ecrã de 2026-08-10 13-47-21" src="https://github.com/user-attachments/assets/ea38cb0e-7886-4ee2-8fd5-f8b61f546964" />
+
 
 <img width="1857" height="991" alt="Captura de ecrã de 2026-08-10 13-47-14" src="https://github.com/user-attachments/assets/a68566bb-a908-4e5f-96be-8af170d37f8c" />
 
@@ -138,24 +143,31 @@ To build a modern interface, **Claude** and **Gemini** were used as assistance t
 <img width="1857" height="1046" alt="Captura de ecrã de 2026-08-10 13-44-20" src="https://github.com/user-attachments/assets/3c4a93f2-bd9d-4e13-8df8-d223effa01d5" />
 
 
+
 ## REGISTRO DE DESPESAS
 
+
 <img width="1857" height="1046" alt="Captura de ecrã de 2026-08-10 13-44-28" src="https://github.com/user-attachments/assets/32b36fdb-2070-49b8-a7e4-e88d7734cfee" />
+
 
 <img width="1857" height="1046" alt="Captura de ecrã de 2026-08-10 13-44-34" src="https://github.com/user-attachments/assets/048048c7-7050-449a-b9ad-fbc66b1b186d" />
 
 
 ## DEFINIR METAS
 
+
 <img width="1857" height="1046" alt="Captura de ecrã de 2026-08-10 13-44-42" src="https://github.com/user-attachments/assets/5f144bc0-0b84-4ada-aa5d-36f408bea96e" />
 
+
 ## CALCULADORA
+
 
 <img width="1857" height="1046" alt="Captura de ecrã de 2026-08-10 13-44-50" src="https://github.com/user-attachments/assets/abe7e061-a0c0-4094-a8b6-ddcd8a583480" />
 
 
 
 ## TELA DE PERFIL
+
 
 <img width="1857" height="1046" alt="Captura de ecrã de 2026-08-10 13-45-19" src="https://github.com/user-attachments/assets/17032f8f-55b9-4e9c-86c3-b9126746c607" />
 
