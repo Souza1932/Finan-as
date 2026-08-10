@@ -19,7 +19,7 @@ HTML
 CSS
 Node.js
 Maven
-Cloude
+Claude
 Gemini
 
 
@@ -73,7 +73,7 @@ Due to the difficulty many people face in managing their daily money, the system
 * CSS
 * Node.js
 * Maven
-* Cloude
+* Claude
 * Gemini
 
 ---
