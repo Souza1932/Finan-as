@@ -25,13 +25,13 @@ Gemini
 
 ## Funcionalidades 
 
-Cadastro de despesas
-Gráfico 
-opções de gráficos: barras, linhas,rosca e radar
-Registro de saldo: entrada e saída de dinheiro
-Planilha
-Espaço para definir metas de gastos e reserva de emergência.
-Calculadora
+* Cadastro de despesas
+* Gráfico 
+* opções de gráficos: barras, linhas, rosca e radar
+* Registro de saldo: entrada e saída de dinheiro
+* Planilha
+* Espaço para definir metas de gastos e reserva de emergência.
+* Calculadora
 
 ## ARQUIVOS
 
