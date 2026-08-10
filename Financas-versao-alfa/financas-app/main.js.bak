@@ -1,0 +1,122 @@
+const { app, BrowserWindow, protocol, net } = require('electron')
+const path = require('path')
+const { pathToFileURL } = require('url')
+
+app.commandLine.appendSwitch('gtk-version', '3')
+process.env.GTK_THEME = 'Adwaita:dark'
+
+// ── PROTOCOLO CUSTOMIZADO (app://) ─────────────────────────────────
+// Precisa ser registrado ANTES do app ficar pronto (exigência do Electron).
+// Isso substitui o "file://" (usado antes via loadFile), que tem comportamento
+// indefinido para localStorage/sessionStorage segundo a própria especificação
+// da Web Storage API. Com um esquema "standard" e "secure", o Chromium passa
+// a tratar o app como tendo uma origem de verdade — e o localStorage volta a
+// persistir de forma confiável entre reinicializações do app.
+protocol.registerSchemesAsPrivileged([
+  {
+    scheme: 'app',
+    privileges: {
+      standard: true,
+      secure: true,
+      supportFetchAPI: true,
+      corsEnabled: true,
+      stream: true
+    }
+  }
+])
+
+function criarJanela() {
+  const janela = new BrowserWindow({
+    width: 1280,
+    height: 800,
+    minWidth: 900,
+    minHeight: 600,
+    title: 'Finanças',
+    webPreferences: {
+      nodeIntegration: false,
+      contextIsolation: true
+      }
+  })
+
+  // Antes: janela.loadFile(path.join(__dirname, 'login.html'))
+  janela.loadURL('app://financas/login.html')
+  janela.setMenuBarVisibility(false)
+  //janela.webContents.openDevTools() 
+}
+
+app.whenReady().then(() => {
+  // Serve os arquivos da pasta do app (html, css, js) através do protocolo "app://".
+  // Ex.: app://financas/login.html -> <pasta do app>/login.html
+  protocol.handle('app', (request) => {
+    const { pathname } = new URL(request.url);
+    const caminhoArquivo = path.join(__dirname, decodeURIComponent(pathname));
+    return net.fetch(pathToFileURL(caminhoArquivo).toString());
+  });
+
+  criarJanela()
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) criarJanela()
+  })
+})
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') app.quit()
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,125 @@
+INSTALLATION STEP BY STEP
+
+1- Download MySQL in the Linux/Ubuntu terminal https://www.youtube.com/watch?v=Uuw4KPiVATc
+2- After downloading, run the command CREATE DATABASE financas
+3- Run the command USE financas
+4- MYSQL COMMAND TO CREATE THE APP USER:   CREATE USER IF NOT EXISTS 'financas_app'@'localhost' IDENTIFIED BY 'YourStrongPassword123';
+Replace YourStrongPassword123 WITH A PASSWORD OF YOUR OWN.
+5- GRANT PRIVILEGES TO THE USER: GRANT ALL PRIVILEGES ON financas.* TO 'financas_app'@'localhost';
+6- APPLY THE PRIVILEGES: FLUSH PRIVILEGES;
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+7- Extract the Financas-app and financas-email-api files
+8- Open the financas-email-api folder
+9- Open the src folder
+10- Open the main folder
+11- Open the resources folder
+12- Open a text editor
+13- Create a file named application.properties
+
+14- # Copy this file as "application.properties" and fill it in with your real data.
+# NEVER push application.properties (with your real password) to GitHub.
+
+server.port=8080
+
+# ── Database (MySQL) — user sign-up/login ──
+spring.application.name=financas
+spring.datasource.url=jdbc:mysql://localhost:3306/financas
+spring.datasource.username=financas_app
+spring.datasource.password= YOUR_FINANCAS_APP_PASSWORD
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+# ── SMTP Configuration (example using Gmail) ──
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=ENTER_YOUR_EMAIL
+spring.mail.password=ENTER_GOOGLE_PASSWORD
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+
+# Email shown as the sender (usually the same as spring.mail.username)
+mail.remetente=ENTER_YOUR_EMAIL
+mail.remetente.nome=Finance
+
+# ── SMTP Configuration (example using Gmail) ── IN THE PROPERTIES FILE'S SMTP SECTION
+
+15- Enter your password in this line:  spring.datasource.password= YOUR_FINANCAS_APP_PASSWORD                     DELETE YOUR_FINANCAS_APP_PASSWORD
+16- Enter your email in this line:  spring.mail.username=ENTER_YOUR_EMAIL                                         DELETE ENTER_YOUR_EMAIL
+
+17- In the line: spring.mail.password=  CREATE A PASSWORD THROUGH THIS LINK  myaccount.google.com/apppasswords
+18- App name
+19- Paste the password into this line:  spring.mail.password=ENTER_GOOGLE_PASSWORD                                DELETE ENTER_GOOGLE_PASSWORD
+20- Save the updated file
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+21- Open the Linux/Ubuntu terminal
+22- Move financas-email-api and financas-app into your home folder
+23- Run the command cd ~/financas-email-api
+24- Run mvn spring-boot:run
+25- Open a new terminal
+26- Run the command cd ~/financas-app
+27- Run the command npm install
+28- Run the command cd ~/financas-app && npm start
+29- Wait for it to launch
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+EXTRA MYSQL COMMANDS IN CASE YOU NEED THEM
+
+CHANGE PASSWORD: ALTER USER 'financas_app'@'localhost' IDENTIFIED BY 'YOUR_NEW_PASSWORD_HERE';
+SELECT * FROM usuarios;
+CHECK USER PRIVILEGES: mysql -u financas_app -p -h 127.0.0.1 financas -e "SELECT 1;"
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+ONCE INSTALLED, YOU DON'T NEED TO FOLLOW THESE STEPS AGAIN — JUST RUN 2 COMMANDS IN THE TERMINAL:
+
+1- cd ~/financas-email-api
+2- mvn spring-boot:run
+3- Open a new terminal
+4- cd ~/financas-app && npm start
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

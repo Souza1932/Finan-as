@@ -1,0 +1,230 @@
+PASSO A PASSO DE INSTALAÇÃO 
+
+1- Baixe o MySQL no terminal Linux-Ubuntu https://www.youtube.com/watch?v=Uuw4KPiVATc
+2- Depois de baixar insira o comando CREATE DATABASE financas
+3- Insira o comando USE financas
+4- COMANDO MYSQL PARA CRIAR USUÁRIO ROOT:   CREATE USER IF NOT EXISTS 'financas_app'@'localhost' IDENTIFIED BY 'SuaSenhaForte123'; 
+No lugar de SuaSenhaForte123 CRIE UMA SENHA PARA SUBSTITUIR.
+5- DAR PERMISSÃO AO USUÁRIO: GRANT ALL PRIVILEGES ON financas.* TO 'financas_app'@'localhost';
+6- APLICAR AS PERMISSÕES: FLUSH PRIVILEGES;
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+7- Extrair os arquivos Financas-app e financas-email-api
+8- Acesse o arquivo financas-email-api
+9- Clique no arquivo src
+10- Clique no arquivo main
+11- Clique no resources
+12- Clique no editor de texto
+13- Crie um arquivo com o nome application.properties
+
+
+
+14- # Copie este arquivo para "application.properties" e preencha com seus dados reais.
+# NUNCA suba o application.properties (com senha de verdade) para o GitHub.
+
+server.port=8080
+
+# ── Banco de dados (MySQL) — cadastro/login de usuários ──
+spring.application.name=financas
+spring.datasource.url=jdbc:mysql://localhost:3306/financas
+spring.datasource.username=financas_app
+spring.datasource.password= SUA_SENHA_FINANCAS_APP
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+# ── Configuração SMTP (exemplo usando Gmail) ──
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=DIGITE_SEU_E-MAIL
+spring.mail.password=DIGITE_SENHA_GOOGLE
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+
+# E-mail que aparece como remetente (geralmente igual ao spring.mail.username)
+mail.remetente=DIGITE_SEU_E-MAIL
+mail.remetente.nome=Finance
+
+
+
+
+
+
+# ── Configuração SMTP (exemplo usando Gmail) ── NO CONFIGURAÇÃO SMTP DO PROPERTIES
+
+15- Digite sua senha neste trecho  spring.datasource.password= SUA_SENHA_FINANCAS_APP                 APAGUE SUA_SENHA_FINANCAS_APP 
+16- Digite seu e-mail neste trecho  spring.mail.username=DIGITE_SEU_E-MAIL                            APAGUE DIGITE_SEU_E-MAIL
+
+17- No trecho: spring.mail.password=  CRIE UMA SENHA ATRAVÉS DESSE LINK  myaccount.google.com/apppasswords 
+18- Nome do app ou App name
+19- Cole a senha neste trecho  spring.mail.password=DIGITE_SENHA_GOOGLE                               APAGUE DIGITE_SENHA_GOOGLE   
+20- Salva as informações atualizadas no arquivo.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+21- Abra o terminal do Linux-Ubuntu
+22- Transfira o financas-email-api e financas-app para Pasta pessoal
+23- Insira o comando cd ~/financas-email-api
+24- Insira o mvn spring-boot:run
+25- Clique em novo terminal ou New Terminal
+26- Insira o comando cd ~/financas-app
+27- Insira o comando npm install
+28- Insira o comando cd ~/financas-app && npm start
+29- Espere executar
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+COMANDO MYSQL EXETRAS CASO PRECISEM 
+
+TROCAR SENHA: ALTER USER 'financas_app'@'localhost' IDENTIFIED BY 'SUA_SENHA_NOVA_AQUI';
+SELECT*FROM usuarios;
+VERIFICAR A SENHA DE PRIVILÉGIUS: mysql -u financas_app -p -h 127.0.0.1 financas -e "SELECT 1;"
+
+
+
+
+
+
+
+DEPOIS DE INSTALADO NÃO PRECISA SEGUIR ESSES PASSOS NOVAMENTE, BASTA INSERIR 2 COMANDOS NO TERMINAL
+
+1- cd ~/financas-email-api
+2- mvn spring-boot:run
+3- new terminal ou novo terminal
+4- cd ~/financas-app && npm start
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

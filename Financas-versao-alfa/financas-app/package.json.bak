@@ -1,0 +1,27 @@
+{
+  "name": "financas-app",
+  "version": "1.0.0",
+  "description": "Sistema de gestão financeira pessoal",
+  "main": "main.js",
+  "author": "Renato",
+  "license": "ISC",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --linux snap"
+  },
+  "devDependencies": {
+    "electron": "^42.2.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.renato.financas",
+    "productName": "Finanças",
+    "linux": {
+      "target": "snap",
+      "category": "Office"
+    },
+    "snap": {
+      "summary": "Sistema de gestão financeira pessoal"
+    }
+  }
+}
