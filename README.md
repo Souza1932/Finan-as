@@ -11,16 +11,16 @@ Devido à dificuldade que muitas pessoas enfrentam para administrar o dinheiro n
 
 ## Tecnologias utilizadas
 
-Java
-Spring Boot
-MySQL
-JavaScript
-HTML
-CSS
-Node.js
-Maven
-Claude
-Gemini
+* Java
+* Spring Boot
+* MySQL
+* JavaScript
+* HTML
+* CSS
+* Node.js
+* Maven
+* Claude
+* Gemini
 
 
 ## Funcionalidades 
