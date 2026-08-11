@@ -86,7 +86,7 @@ Due to the difficulty many people face in managing their daily money, the system
 * Charts: bar, line, donut, and radar chart options
 * Balance tracking: income and expense entries
 * Spreadsheet
-* Dedicated space to set spending goals and emergency funds
+* Dedicated space to set goals
 * Calculator
 
 ---
