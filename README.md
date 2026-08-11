@@ -47,7 +47,7 @@ Financas-app arquivo que contém o sistema finanças.
 ## SOBRE O DESENVOLVIMENTO
 
 A interface e servidor do sistema foram desenvolvidos com base neste projeto original do netBeans: [Finanças.zip](https://github.com/user-attachments/files/30905677/Financas.zip) 
-Para construção de uma interface moderna foram utilizados Claude e Gemini para auxílio no desenvolvimento do front-end.
+Para construção de uma interface moderna foram utilizados Claude, Gemini e Figma para auxílio no desenvolvimento do front-end.
 
 
 
@@ -107,7 +107,7 @@ Due to the difficulty many people face in managing their daily money, the system
 ## About the Development
 
 The system's interface and server were developed based on this original NetBeans project: [Finanças.zip](https://github.com/user-attachments/files/30905677/Financas.zip)
-To build a modern interface, **Claude** and **Gemini** were used as assistance tools during front-end development.
+To build a modern interface Claude,Gemini and Figma were used as assistance tools during front-end development.
 
 
 
