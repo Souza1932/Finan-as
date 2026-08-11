@@ -100,7 +100,7 @@ Due to the difficulty many people face in managing their daily money, the system
 
 ## 📖 Installation Manual
 
-📄 [Click here to get the step-by-step installation guide](./INSTALLATION_STEP_BY_STEP.txt)
+📄 [Click here to get the step-by-step installation guide](https://github.com/Souza1932/Finan-as/blob/main/Financas-versao-alfa/INSTALLATION_STEP_BY_STEP.txt)
 
 ---
 
