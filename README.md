@@ -107,7 +107,7 @@ Due to the difficulty many people face in managing their daily money, the system
 ## About the Development
 
 The system's interface and server were developed based on this original NetBeans project: [Finanças.zip](https://github.com/user-attachments/files/30905677/Financas.zip)
-To build a modern interface were used Claude,Gemini and Figma as assistance tools during front-end development.
+To build a modern interface were used Claude, Gemini and Figma as assistance tools during front-end development.
 
 
 
