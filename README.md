@@ -83,7 +83,7 @@ Due to the difficulty many people face in managing their daily money, the system
 ## Features
 
 * Expense registration
-* Charts: bar, line, donut, and radar chart options
+* Charts: bar, line, donut, and radar
 * Balance tracking: income and expense entries
 * Spreadsheet
 * Dedicated space to set goals
