@@ -1,7 +1,6 @@
 
 ## 🇧🇷 Português
 
-Finanças
 
 Finanças é um sistema projetado para ajudar na organização e no gerenciamento das suas contas, contribuindo para uma boa gestão financeira.
 
@@ -56,7 +55,6 @@ Para construção de uma interface moderna foram utilizados Claude, Gemini e Fig
 
 🇺🇸 English
 
-# Finances
 
 Finances is a system designed to help organize and manage your accounts, contributing to sound financial management.
 
