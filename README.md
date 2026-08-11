@@ -21,6 +21,7 @@ Devido à dificuldade que muitas pessoas enfrentam para administrar o dinheiro n
 * Maven
 * Claude
 * Gemini
+* Figma
 
 
 ## Funcionalidades 
@@ -75,6 +76,7 @@ Due to the difficulty many people face in managing their daily money, the system
 * Maven
 * Claude
 * Gemini
+* Figma
 
 ---
 
