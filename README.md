@@ -53,7 +53,8 @@ Para construção de uma interface moderna foram utilizados Claude, Gemini e Fig
 
 
 
-🇺🇸 English
+
+## 🇺🇸 English
 
 
 Finances is a system designed to help organize and manage your accounts, contributing to sound financial management.
