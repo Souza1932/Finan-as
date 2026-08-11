@@ -37,7 +37,7 @@ Devido à dificuldade que muitas pessoas enfrentam para administrar o dinheiro n
 ## ARQUIVOS
 
 Financas.email.api é servidor do sistema finanças, sem ele o sistema não funciona.
-Financas-app arquivo que contém o sistema finanças.
+Financas-app é arquivo que contém o sistema finanças.
 
 
 ## MANUAL DE INSTALAÇÃO
